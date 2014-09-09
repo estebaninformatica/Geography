@@ -7,7 +7,7 @@ class Api::V1::RegionsController < ApplicationController
 
   def show
     @region = Region.find(params[:id])
-    render json: @regions.to_json(:include => :countries, methods: :url)
+    render json: @region.to_json(:include => :countries, methods: :url)
   end
 
 end
