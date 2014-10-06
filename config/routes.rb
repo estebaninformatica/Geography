@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       # get 'countries/areas' => 'operators#index_with_providers'
 
       # get 'areas/destinations' => 'operators#index_with_providers'
-      
+      get 'destinations/criteria/:criteria' => 'destinations#index'
       resources :regions,      only: [:index, :show] do
         resources :countries,    only: [:index, :show]  do 
           resources :areas,        only: [:index, :show] do
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
           end
         end
       end
+      
       resources :regions,      only: [:index, :show]
       resources :countries,    only: [:index, :show]
       resources :areas,        only: [:index, :show] 

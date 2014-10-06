@@ -7,4 +7,5 @@ class Destination < ActiveRecord::Base
 	include Rails.application.routes.url_helpers
 	include UrlMethod
 
+	scope :search, ->(term) { where('destinations.name LIKE ?', "%#{term}%").order("destinations.name") }
 end
