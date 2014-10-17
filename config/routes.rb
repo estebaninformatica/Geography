@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
       # get 'areas/destinations' => 'operators#index_with_providers'
       get 'destinations/criteria/:criteria' => 'destinations#index'
+      get 'areas/criteria/:criteria' => 'areas#index'
       resources :regions,      only: [:index, :show] do
         resources :countries,    only: [:index, :show]  do 
           resources :areas,        only: [:index, :show] do

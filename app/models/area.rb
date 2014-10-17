@@ -8,4 +8,5 @@ class Area < ActiveRecord::Base
 	include Rails.application.routes.url_helpers
 	include UrlMethod
 	
+	scope :search, ->(term) { where('areas.name LIKE ?', "%#{term}%").order("areas.name") }
 end
