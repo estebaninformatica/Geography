@@ -4,28 +4,27 @@ gem 'rails', ' ~> 4.1.0'
 
 gem 'rails-api'
 
-group :development do
-  gem 'spring'
-  gem 'pry-rails'
-end
+gem 'spring', :group => :development
 
 gem 'mysql2'
 
+gem 'mysql'
+
+gem 'sqlite3'
+
+gem "tiny_tds"
+
+gem 'activerecord-sqlserver-adapter'
+
+group :development do
+   # some other gem
+   gem "colorize"
+   gem 'awesome_print'
+   gem 'pry'
+end
+
+
+
 gem "activeresource"
 
-
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
- gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano', :group => :development
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'unicorn'

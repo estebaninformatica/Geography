@@ -13,18 +13,18 @@ Rails.application.routes.draw do
       get 'destinations/criteria/:criteria' => 'destinations#index'
       get 'areas/criteria/:criteria' => 'areas#index'
       resources :regions,      only: [:index, :show] do
-        resources :countries,    only: [:index, :show]  do 
+        resources :countries,    only: [:index, :show]  do
           resources :areas,        only: [:index, :show] do
-            resources :destinations, only: [:index, :show] 
+            resources :destinations, only: [:index, :show]
           end
         end
       end
-      
+
       resources :regions,      only: [:index, :show]
       resources :countries,    only: [:index, :show]
-      resources :areas,        only: [:index, :show] 
+      resources :areas,        only: [:index, :show]
       resources :destinations, only: [:index, :show]
-
+     resources :aptour_destinations, only: [:index, :show]
     end
   end
 end
