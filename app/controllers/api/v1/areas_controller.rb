@@ -7,7 +7,7 @@ class Api::V1::AreasController < ApplicationController
 
   def show
     @area = Area.find(params[:id])
-    render json: @area.to_json(:include => :country,:include => :destinations, methods: :url)
+    render json: @area.to_json(:include => [:country, :destinations], methods: :url)
   end
 
 
