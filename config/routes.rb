@@ -25,7 +25,8 @@ Rails.application.routes.draw do
       resources :countries,    only: [:index, :show]
       resources :areas,        only: [:index, :show]
       resources :destinations, only: [:index, :show]
-     resources :aptour_destinations, only: [:index, :show]
+      resources :aptour_destinations, only: [:index, :show]
+      resources :airports,        only: [:index, :show]
     end
   end
 end
