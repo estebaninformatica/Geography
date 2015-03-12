@@ -6,19 +6,29 @@ class Airport < ActiveRecord::Base
   belongs_to :area
   delegate :country, to: :area
   delegate :regions, to: :area
+  include Rails.application.routes.url_helpers
+  include UrlMethod
 
   def contains_area(area)
     return self.areas.include?(area)
   end
 
-  def country_name
-    country.name
+  def to_json_middle
+    {
+      id: id,
+      code: iata_code,
+      name: name,
+      country_id: country.id,
+      country_name: country.name,
+      area_id: area.id,
+      area_name: area.name,
+      url: url,
+      regions: regions.map { |region| { region_id: region.id, region_name: region.name }
+      },
+      areas: areas.map { |area| { area_id: area.id, area_name: area.name }
+      }
+    }
   end
-
-  def country_id
-    country.id
-  end
-
 
   scope :search, ->(term) { where('airports.name LIKE ?', "%#{term}%").order("airports.name") }
 end
